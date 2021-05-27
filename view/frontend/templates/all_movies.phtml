@@ -1,0 +1,66 @@
+<h1>All Movie</h1>
+
+<div class="table-wrapper questions">
+    <table class="data table table-questions" id="my-questions-table">
+        <thead>
+            <tr>
+                <th scope="col" class="col date"><?= $block->escapeHtml(__('Name Movie')) ?></th>
+                <th scope="col" class="col item"><?= $block->escapeHtml(__('Description')) ?></th>
+                <th scope="col" class="col question"><?= $block->escapeHtml(__('Rating')) ?></th>
+                <th scope="col" class="col answer"><?= $block->escapeHtml(__('Director Id')) ?></th>
+                <th scope="col" class="col actions">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->getListMovie() as $movie) : ?>
+            <tr>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Name Movie')) ?>" class="col date"><?= $block->escapeHtml($movie->getName()) ?></td>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Description')) ?>" class="col name"><?= $block->escapeHtml($movie->getDescription()) ?></td>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Rating')) ?>" class="col question"><?= $block->escapeHtml($movie->getRating()) ?></td>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Director Id')) ?>" class="col answer"><?= $movie->getAuth()?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<h1>All Director</h1>
+
+<div class="table-wrapper questions">
+    <table class="data table table-questions" id="my-questions-table">
+        <thead>
+            <tr>
+                <th scope="col" class="col date"><?= $block->escapeHtml(__('Director Id')) ?></th>
+                <th scope="col" class="col item"><?= $block->escapeHtml(__('Name')) ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->getListDirector() as $movie) : ?>
+            <tr>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Director Id')) ?>" class="col date"><?= $block->escapeHtml($movie->getDirector_id()) ?></td>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Name')) ?>" class="col name"><?= $block->escapeHtml($movie->getName()) ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<h1>All Actor</h1>
+
+<div class="table-wrapper questions">
+    <table class="data table table-questions" id="my-questions-table">
+        <thead>
+            <tr>
+                <th scope="col" class="col date"><?= $block->escapeHtml(__('Actor Id')) ?></th>
+                <th scope="col" class="col item"><?= $block->escapeHtml(__('Name')) ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->getListActor() as $movie) : ?>
+            <tr>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Actor Id')) ?>" class="col date"><?= $block->escapeHtml($movie->getActor_id()) ?></td>
+                <td data-th="<?= $block->escapeHtmlAttr(__('Name')) ?>" class="col name"><?= $block->escapeHtml($movie->getName()) ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
