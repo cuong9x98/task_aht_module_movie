@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="AHT_Movie::index" title="Movie" translate="movie" module="AHT_Movie" sortOrder="50"   resource="AHT_Movie::index"/>
+		<add id="AHT_Movie::movie" title="Movie All" module="AHT_Movie" parent="AHT_Movie::index" action="moviepage/movie/index" resource="AHT_Movie::movie" sortOrder="55" />
+	</menu>
+</config>

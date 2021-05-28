@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+     <!-- Đăng kí nguồn TableMain -->
+    <virtualType name="AHT\Movie\Model\ResourceModel\Movie\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_movie</argument>
+            <argument name="resourceModel" xsi:type="string">AHT\Movie\Model\ResourceModel\Movie</argument>
+        </arguments>
+    </virtualType>
+     
+    <!-- Đăng kí nguồn dữ liệu -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments> <!-- nhu 1 container cua argumenrts -->
+            <argument name="collections" xsi:type="array">
+                <item name="movie_index_listing_data_source" xsi:type="string">AHT\Movie\Model\ResourceModel\Movie\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+   
+</config>

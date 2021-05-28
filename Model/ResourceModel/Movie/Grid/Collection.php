@@ -51,16 +51,16 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $mainTable, $resourceModel);
     }
 
-    protected function _initSelect()
-    {
-         $this->getSelect()
-            ->from(['main_table' => 'magenest_movie'])
-            ->joinLeft('magenest_director',    
-            'main_table.director_id = magenest_director.director_id',
-            [
-                'magenest_director.value'
-            ]);          
-        $this->addFilterToMap('movie_id', 'main_table.movie_id');
-        return $this;
-    }
+    // protected function _initSelect()
+    // {
+    //      $this->getSelect()
+    //         ->from(['main_table' => 'magenest_movie'])
+    //         ->joinLeft('magenest_director',    
+    //         'main_table.movie_id = magenest_director.movie_id ',
+    //         [
+    //             'magenest_director.name'
+    //         ]);          
+    //     $this->addFilterToMap('movie_id', 'main_table.movie_id');
+    //     return $this;
+    // }
 }
