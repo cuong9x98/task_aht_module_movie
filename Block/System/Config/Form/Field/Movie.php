@@ -1,14 +1,13 @@
 <?php
+namespace AHT\Movie\Block\System\Config\Form\Field;
 
-namespace AHT\Movie\Block\Movie;
-
+use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\View\Element\Template;
 use Magento\Backend\Block\Template\Context;
 use AHT\Movie\Model\ResourceModel\Movie\CollectionFactory;
 
-class ListMovie extends Template 
-{
-
+class Movie extends \Magento\Config\Block\System\Config\Form\Field
+{    
     public $collection;
     public $director;
     public $actor;
@@ -28,34 +27,11 @@ class ListMovie extends Template
         parent::__construct($context, $data);
     }
 
-    public function getListMovie()
-    {
-        // return $this->collection->create();
-        $collection =  $this->collection->create();
-
-        $collection->getSelect()->join(
-            ['magenest_director' =>$collection->getTable("magenest_director")],
-            'main_table.director_id=magenest_director.director_id',
-            ['auth'=>'magenest_director.name']
-        );
-
-        return $collection;
-
-    }
-    public function getListDirector()
-    {
-        return $this->director->create();
-    }
-
-    public function getListActor()
-    {   
-        return $this->actor->create();
-    }
-
-    public function getCountMovie()
+    protected function _getElementHtml(AbstractElement $element)
     {
         $collection =  $this->collection->create();
-        return $collection->count();
+        $element->setDisabled('disabled');
+        $element->setValue($collection->count());
+        return $element->getElementHtml();
     }
-   
 }

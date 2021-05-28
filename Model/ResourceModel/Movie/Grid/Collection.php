@@ -43,11 +43,11 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         FetchStrategy $fetchStrategy,
         EventManager $eventManager,$mainTable,
         $resourceModel,
-        Question $questionModel,
+        Movie $movieModel,
         \Magento\Framework\Stdlib\DateTime\DateTime $date
     ) {
         $this->date = $date;
-        $this->questionModel = $questionModel;
+        $this->movieModel = $movieModel;
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $mainTable, $resourceModel);
     }
 
