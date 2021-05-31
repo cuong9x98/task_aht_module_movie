@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-     <!-- Đăng kí nguồn TableMain -->
+     <!-- Đăng kí nguồn TableMain Grid Collection-->
     <virtualType name="AHT\Movie\Model\ResourceModel\Movie\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_movie</argument>
@@ -18,4 +18,46 @@
         </arguments>
     </type>
    
+    <!-- Đăng kí nguồn TableMain -->
+    <virtualType name="AHT\Movie\Model\ResourceModel\Director\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_director</argument>
+            <argument name="resourceModel" xsi:type="string">AHT\Movie\Model\ResourceModel\Director</argument>
+        </arguments>
+    </virtualType>
+
+     <!-- Đăng kí nguồn dữ liệu -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments> <!-- nhu 1 container cua argumenrts -->
+            <argument name="collections" xsi:type="array">
+                <item name="aht_movie_form_data_source" xsi:type="string">AHT\Movie\Model\ResourceModel\Director\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+     <!-- Đăng kí nguồn dữ liệu -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments> <!-- nhu 1 container cua argumenrts -->
+            <argument name="collections" xsi:type="array">
+                <item name="director_index_listing_data_source" xsi:type="string">AHT\Movie\Model\ResourceModel\Director\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+     <!-- Đăng kí nguồn dữ liệu -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments> <!-- nhu 1 container cua argumenrts -->
+            <argument name="collections" xsi:type="array">
+                <item name="actor_index_listing_data_source" xsi:type="string">AHT\Movie\Model\ResourceModel\Actor\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Đăng kí nguồn TableMain Grid Collection-->
+    <virtualType name="AHT\Movie\Model\ResourceModel\Actor\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_actor</argument>
+            <argument name="resourceModel" xsi:type="string">AHT\Movie\Model\ResourceModel\Actor</argument>
+        </arguments>
+    </virtualType>
 </config>

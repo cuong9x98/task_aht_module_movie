@@ -30,6 +30,9 @@
                 <field id="text_actor" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Rows in table “magenest_actor”</label>
                     <frontend_model>AHT\Movie\Block\System\Config\Form\Field\Actor</frontend_model>
+                    <depends>
+                        <field id="select_field">1</field>
+                    </depends>
                 </field>
                 <field id="button_id" translate="label" type="button" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Button Reload Page</label>

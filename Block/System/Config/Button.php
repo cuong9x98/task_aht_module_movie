@@ -28,7 +28,7 @@ class Button extends Field
     }
     public function getButtonHtml()
     {
-        $button = $this->getLayout()->createBlock('Magento\Backend\Block\Widget\Button')->setData(['id' => 'btn_id', 'label' => __('Reload Page'),]);
+        $button = $this->getLayout()->createBlock('Magento\Backend\Block\Widget\Button')->setData(['id' => 'btn_id', 'label' => __('Reload Page')])->setOnClick("setLocation('')");
         return $button->toHtml();
     }
 }

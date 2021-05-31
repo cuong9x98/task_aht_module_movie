@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aht_movie_form.aht_movie_form_data_source</item>
+            <item name="deps" xsi:type="string">aht_movie_form.aht_movie_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Form Movie</item>
+
+        <!-- Bắt buộc phải có dòng này -->
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">aht_movie_form</item>
+        </item>
+
+        <!-- Bắt buộc phải có dòng này -->
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+     <!-- Khai báo nút bấm bên tay phải -->
+     <settings>
+        <buttons>
+            <button name="save" class="AHT\Movie\Block\Movie\SaveButton"/>
+            <!-- <button name="reset" class="AHT\Movie\Block\Adminhtml\Movie\Edit\ResetButton"/>
+            <button name="back" class="AHT\Movie\Block\Adminhtml\Movie\Edit\BackButton"/> -->
+        </buttons>
+        <namespace>aht_movie_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>aht_movie_form.aht_movie_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="aht_movie_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">AHT\Movie\Model\Movie\DataProvider</argument>
+            <argument name="name" xsi:type="string">aht_movie_form_data_source</argument>
+             <!-- Khóa chính của bảng -->
+            <argument name="primaryFieldName" xsi:type="string">movie_id</argument>
+            <argument name="requestFieldName" xsi:type="string">movie_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="moviepage/movie/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="author_main">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/>
+            </item>
+        </argument>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">movie</item>
+                    <item name="sortOrder" xsi:type="number">1</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="notice" xsi:type="string" translate="true">Enter name here</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        
+        <field name="description" sortOrder="4">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">movie</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="dataScope" xsi:type="string">description</item>
+                </item>
+            </argument>
+        </field>
+        <field name="rating" sortOrder="5">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Rating</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">movie</item>
+                    <item name="sortOrder" xsi:type="number">4</item>
+                    <item name="dataScope" xsi:type="string">rating</item>
+                </item>
+            </argument>
+        </field>
+         <field name="director_id" sortOrder="3" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Director</label>
+                <dataScope>director_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="AHT\Movie\Ui\Component\Director\Column\ListOptionForm" />
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

@@ -2,39 +2,39 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">movie_index_listing.movie_index_listing_data_source</item>
-            <item name="deps" xsi:type="string">movie_index_listing.movie_index_listing_data_source</item>
+            <item name="provider" xsi:type="string">actor_index_listing.actor_index_listing_data_source</item>
+            <item name="deps" xsi:type="string">actor_index_listing.actor_index_listing_data_source</item>
         </item>
-        <item name="spinner" xsi:type="string">movie_index_listing_columns</item> 
-        <!-- <item name="buttons" xsi:type="array"><item name="add" xsi:type="array"><item name="name" xsi:type="string">add</item><item name="label" xsi:type="string" translate="true">Add New Post</item><item name="class" xsi:type="string">primary</item><item name="url" xsi:type="string">qaa/movie/edit</item></item></item> -->
+        <item name="spinner" xsi:type="string">actor_index_listing_columns</item> 
+        <!-- <item name="buttons" xsi:type="array"><item name="add" xsi:type="array"><item name="name" xsi:type="string">add</item><item name="label" xsi:type="string" translate="true">Add New Post</item><item name="class" xsi:type="string">primary</item><item name="url" xsi:type="string">qaa/actor/edit</item></item></item> -->
     </argument>
      <!-- ADD new button -->
     <settings>
         <buttons>
             <button name="add">
-                <url path="moviepage/movie/create"/>
+                <url path="actorpage/actor/create"/>
                 <class>primary</class>
-                <label translate="true">New Movie</label>
+                <label translate="true">New Actor</label>
             </button>
         </buttons>
-        <spinner>movie_columns</spinner>
+        <spinner>actor_columns</spinner>
         <deps>
-            <dep>movie_listing.movie_listing_data_source</dep>
+            <dep>actor_listing.actor_listing_data_source</dep>
         </deps>
     </settings>
     <!-- End add new button-->
     <dataSource name="nameOfDataSource">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">movie_index_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">movie_id</argument>
-            <argument name="requestFieldName" xsi:type="string">movie_id</argument>
+            <argument name="name" xsi:type="string">actor_index_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">actor_id</argument>
+            <argument name="requestFieldName" xsi:type="string">actor_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">movie_id</item>
+                        <item name="indexField" xsi:type="string">actor_id</item>
                     </item>
                 </item>
             </argument>
@@ -57,12 +57,12 @@
                     </filters>
                 </templates>
             </settings>
-            <filterSelect name="movie_id" provider="${ $.parentName }">
+            <filterSelect name="actor_id" provider="${ $.parentName }">
                 <settings>
                     <captionValue>0</captionValue>
                     <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
                     <label translate="true">Store View</label>
-                    <dataScope>movie_id</dataScope>
+                    <dataScope>actor_id</dataScope>
                     <imports>
                         <link name="visible">componentType = column, index = ${ $.index }:visible</link>
                     </imports>
@@ -76,7 +76,7 @@
                         <message translate="true">Are you sure you want to delete selected items?</message>
                         <title translate="true">Delete items</title>
                     </confirm>
-                    <url path="movie/movie/massDelete"/>
+                    <url path="actor/actor/massDelete"/>
                     <type>delete</type>
                     <label translate="true">Delete</label>
                 </settings>
@@ -87,7 +87,7 @@
                         <message translate="true">Are you sure you want enable items?</message>
                         <title translate="true">Enable items</title>
                     </confirm>
-                    <url path="movie/movie/massEnable"/>
+                    <url path="actor/actor/massEnable"/>
                     <type>enable</type>
                     <label translate="true">Enable</label>
                 </settings>
@@ -98,7 +98,7 @@
                         <message translate="true">Are you sure you want disable items?</message>
                         <title translate="true">Disable items</title>
                     </confirm>
-                    <url path="movie/movie/massDisable"/>
+                    <url path="actor/actor/massDisable"/>
                     <type>disable</type>
                     <label translate="true">Disable</label>
                 </settings>
@@ -107,7 +107,7 @@
                 <settings>
                     <callback>
                         <target>editSelected</target>
-                        <provider>movie_index_listing.movie_index_listing.movie_index_listing_columns_editor</provider>
+                        <provider>actor_index_listing.actor_index_listing.actor_index_listing_columns_editor</provider>
                     </callback>
                     <type>edit</type>
                     <label translate="true">Edit</label>
@@ -116,21 +116,21 @@
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="movie_index_listing_columns">
+    <columns name="actor_index_listing_columns">
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
-                    <item name="saveUrl" xsi:type="url" path="movie/movie/inlineEdit"/>
+                    <item name="saveUrl" xsi:type="url" path="actor/actor/inlineEdit"/>
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
-                <param name="indexField" xsi:type="string">movie_id</param>
+                <param name="indexField" xsi:type="string">actor_id</param>
                 <!-- Tat bat inline edit -->
                 <param name="enabled" xsi:type="boolean">true</param>
-                <param name="selectProvider" xsi:type="string">movie_index_listing.movie_index_listing.movie_index_listing_columns.ids</param>
+                <param name="selectProvider" xsi:type="string">actor_index_listing.actor_index_listing.actor_index_listing_columns.ids</param>
             </editorConfig>
             <childDefaults>
                 <param name="fieldAction" xsi:type="array">
-                    <item name="provider" xsi:type="string">movie_index_listing.movie_index_listing.movie_index_listing_columns_editor</item>
+                    <item name="provider" xsi:type="string">actor_index_listing.actor_index_listing.actor_index_listing_columns_editor</item>
                     <item name="target" xsi:type="string">startEdit</item>
                     <item name="params" xsi:type="array">
                         <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -144,12 +144,12 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">movie_id</item>
+                    <item name="indexField" xsi:type="string">actor_id</item>
                 </item>
             </argument>
         </selectionsColumn>
 
-        <column name="movie_id">
+        <column name="actor_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
@@ -158,7 +158,7 @@
                 </item>
             </argument>
         </column>
-
+        
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -168,41 +168,7 @@
                 </item>
             </argument>
         </column>
-
-        <column name="description">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Description</item>
-                </item>
-            </argument>
-        </column>
-
-        <column name="rating">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <!-- <item name="validation" xsi:type="array"><item name="required-entry" xsi:type="boolean">true</item></item> -->
-                    </item>
-                    <item name="label" xsi:type="string" translate="true">Rating</item>
-                </item>
-            </argument>
-        </column>
-       
-        <column name="director_id" class="AHT\Movie\Ui\Component\Listing\Column\NameDirec">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                    </item>
-                    <item name="label" xsi:type="string" translate="true">Directory</item>
-                </item>
-            </argument>
-        </column>
+        
     </columns>
 
 </listing>
