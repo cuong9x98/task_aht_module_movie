@@ -60,4 +60,10 @@
             <argument name="resourceModel" xsi:type="string">AHT\Movie\Model\ResourceModel\Actor</argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Customer\Model\Customer">
+        <plugin name="FirstNameCustomerController" type="AHT\Movie\Plugin\RenameFirstName" sortOrder="10"/>
+    </type>
+
+    <preference for="Magento\Checkout\CustomerData\DefaultItem" type="AHT\Movie\Block\MiniCart\DefaultItem" />
 </config>

@@ -82,8 +82,12 @@ class Save extends \AHT\Movie\Controller\Adminhtml\Block implements HttpPostActi
                 }
             }
             $model->setData($data);
-
+            $name = $this->getRequest()->getParam('name');
             try {
+                if($name=="Ping"){
+                    $model->setName('Pong');
+                }
+                $model->setRating(0);
                 $this->resource->save($model);
                 $this->messageManager->addSuccessMessage(__('You saved the block.'));
                 $this->dataPersistor->clear('magenest_director');

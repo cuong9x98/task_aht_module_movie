@@ -84,18 +84,7 @@
                 </item>
             </argument>
         </field>
-        <field name="rating" sortOrder="5">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Rating</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
-                    <item name="source" xsi:type="string">movie</item>
-                    <item name="sortOrder" xsi:type="number">4</item>
-                    <item name="dataScope" xsi:type="string">rating</item>
-                </item>
-            </argument>
-        </field>
+        
          <field name="director_id" sortOrder="3" formElement="select">
             <settings>
                 <dataType>text</dataType>
