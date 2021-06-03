@@ -1,0 +1,57 @@
+<?php
+    $helper = $this->helper('AHT\Movie\Helper\Data');
+?>
+
+
+<section class="admin__page-section order-view-account-information">
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item order-information">
+            <div class="admin__page-section-item-title">
+                <span class="title">Module </span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-information-table">  
+                <tr>
+                    <th>Module All Magento</th>
+                    <td><?php echo count($helper->getAllModel());?></td>
+                </tr>
+                <tr>
+                    <th>Module All Magento</th>
+                    <td><?php echo ($helper->runSqlQuery('setup_module'));?></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+
+        <div class="admin__page-section-item order-account-information">
+            <?php /* Account Information */ ?>
+            <div class="admin__page-section-item-title">
+                <span class="title">Information </span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-account-information-table">
+                    <tr>
+                        <th>Customer</th>
+                        <td><?php echo ($helper->getLabelCustomer());?></td>
+                    </tr>
+                    <tr>
+                        <th>Product</th>
+                        <td><?php echo ($helper->runSqlQuery('catalog_product_entity'));?></td>
+                    </tr>
+                    <tr>
+                        <th>Order</th>
+                        <td><?php echo ($helper->getLabel());?></td>
+                    </tr>
+                    <tr>
+                        <th>Invoice</th>
+                        <td><?php echo ($helper->getInvoices());?></td>
+                    </tr>
+                    <tr>
+                        <th>Creditmemos</th>
+                        <td><?php echo ($helper->runSqlQuery('sales_creditmemo'));?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

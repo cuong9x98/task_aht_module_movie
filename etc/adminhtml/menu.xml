@@ -2,8 +2,15 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
 	<menu>
 		<add id="AHT_Movie::index" title="Movie" translate="movie" module="AHT_Movie" sortOrder="50"   resource="AHT_Movie::index"/>
-		<add id="AHT_Movie::movie" title="Movie All" module="AHT_Movie" parent="AHT_Movie::index" action="moviepage/movie/index" resource="AHT_Movie::movie" sortOrder="55" />
-		<add id="AHT_Movie::director" title="Director All" module="AHT_Movie" parent="AHT_Movie::index" action="moviepage/director/index" resource="AHT_Movie::director" sortOrder="60" />
-		<add id="AHT_Movie::actor" title="Actor All" module="AHT_Movie" parent="AHT_Movie::index" action="moviepage/actor/index" resource="AHT_Movie::actor" sortOrder="65" />
+
+		<add id="AHT_Movie::settings" title="Settings" module="AHT_Movie" parent="AHT_Movie::index" resource="AHT_Movie::settings"/>
+		<add id="AHT_Movie::movie" title="Movie All" module="AHT_Movie" parent="AHT_Movie::settings" action="moviepage/movie/index" resource="AHT_Movie::movie" sortOrder="55" />
+		<add id="AHT_Movie::director" title="Director All" module="AHT_Movie" parent="AHT_Movie::settings" action="moviepage/director/index" resource="AHT_Movie::director" sortOrder="60" />
+		<add id="AHT_Movie::actor" title="Actor All" module="AHT_Movie" parent="AHT_Movie::settings" action="moviepage/actor/index" resource="AHT_Movie::actor" sortOrder="65" />
+		
+		<add id="AHT_Movie::view" title="View" module="AHT_Movie" parent="AHT_Movie::index" resource="AHT_Movie::settings"/>
+		<add id="AHT_Movie::report" title="Report All" module="AHT_Movie" parent="AHT_Movie::view" action="moviepage/report/index" resource="AHT_Movie::report" sortOrder="75" />
+
 	</menu>
 </config>
+
