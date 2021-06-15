@@ -18,15 +18,7 @@ class DefaultItem extends \Magento\Checkout\CustomerData\DefaultItem
         parent::__construct($imageHelper, $msrpHelper, $urlBuilder, $configurationPool, $checkoutHelper);
         $this->productRepository = $productRepository;
     }
-    public function getNameChildProduct($id)
-    {
-        $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $_product = $_objectManager->create('Magento\Catalog\Model\Product')->load($id);
-        $_childProducts = $_product->getTypeInstance()->getUsedProducts($_product);
-        foreach ($_childProducts as $simpleProduct){
-            echo $simpleProduct->getId();
-        }
-    }
+   
     protected function doGetItemData()
     {
         $child = $this->productRepository->get($this->item->getProduct()->getSku());

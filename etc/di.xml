@@ -25,7 +25,6 @@
             <argument name="resourceModel" xsi:type="string">AHT\Movie\Model\ResourceModel\Director</argument>
         </arguments>
     </virtualType>
-
      <!-- Đăng kí nguồn dữ liệu -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments> <!-- nhu 1 container cua argumenrts -->
@@ -34,8 +33,6 @@
             </argument>
         </arguments>
     </type>
-
-
      <!-- Đăng kí nguồn dữ liệu -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments> <!-- nhu 1 container cua argumenrts -->
@@ -61,9 +58,7 @@
         </arguments>
     </virtualType>
 
-    <type name="Magento\Customer\Model\Customer">
-        <plugin name="FirstNameCustomerController" type="AHT\Movie\Plugin\RenameFirstName" sortOrder="10"/>
-    </type>
+   
 
     <preference for="Magento\Checkout\CustomerData\DefaultItem" type="AHT\Movie\Block\MiniCart\DefaultItem" />
 </config>
